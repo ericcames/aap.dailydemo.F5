@@ -30,7 +30,7 @@ Day 1 - Infrastructure as code (IAC)
 # Deploy the infrastruture we need for the demo
 
 Run workflow for the f5 Daily Demo<br>
-![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/f5fw.png "The workflow")
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/f5wf.png "The workflow")
 
 # The F5 User Interface
 
