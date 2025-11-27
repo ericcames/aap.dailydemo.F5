@@ -6,7 +6,7 @@ Notes
 =========
 1. This demo is designed to work with the Red Hat Demo Platform. Please see the aap.as.code repo below. [aap.as.code](https://github.com/ericcames/aap.as.code "aap.as.code")
 2. This demo works with Amazon only currently.
-3. Must accept Terms and conditions at this link while logged into the AWS environment before running this. https://aws.amazon.com/marketplace/pp/prodview-mn63yjbq37n4c
+3. Must accept Terms and conditions at this link while logged into the AWS environment before running this. https://aws.amazon.com/marketplace/pp?sku=c5mtwrozlfns1fnawk1nvx2dh
 ![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/f5optin.png "Terms")
 
 Day 0 - Configuration as code (CAC)
