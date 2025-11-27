@@ -85,6 +85,11 @@ Day 2
 [F5 -6- AWS -Delete VIP](https://gitlab.com/mlowcher/F5_examples/-/blob/master/4_bigip_virtual_server.yml?ref_type=heads "")<br>
 [F5 -7- AWS -Change admin password](https://gitlab.com/mlowcher/F5_examples/-/blob/master/change_admin_passwd.yml?ref_type=heads "")<br>
 
+**The Workflows**
+
+![](/images/f5wf0.png)<br>
+
+
 **Execution Environment**<br>
 - [F5_ee](https://quay.io/locust61/f5_ee:0.1 "F5 Execution Environment")
 ```
