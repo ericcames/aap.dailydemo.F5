@@ -193,6 +193,8 @@ controller_templates:
       - Daily Demo F5
       - "{{ my_aws_credential }}"
       - "{{ my_aap_credential }}"
+    extra_vars:
+      my_remote_ssh_pub_key: "{{ my_remote_ssh_pub_key }}"
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/basic_survey.json') | regex_replace('\\n', '') }}"
 
