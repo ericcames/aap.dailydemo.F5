@@ -31,15 +31,16 @@
           tag:group: "ml_demo"
           instance-state-name: [running]
 
-    - name: Create a new token using username/password
-      ansible.controller.token:
-        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
-        controller_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
-        validate_certs: false
-        description: Daily Demo token
+    - name: Create a new token
+      ansible.platform.token:
+        aap_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        aap_username: "{{ lookup('ansible.builtin.env', 'CONTROLLER_USERNAME') }}"
+        aap_password: "{{ lookup('ansible.builtin.env', 'CONTROLLER_PASSWORD') }}"
+        aap_validate_certs: false
+        description: F5 Inventory
         scope: write
         state: present
+
 
 - name: Adding our new vm to our inventory
   tags:
@@ -50,7 +51,7 @@
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
         inventory: "{{ inventory_managed_inventory_name }}"
@@ -64,7 +65,7 @@
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.group:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: f5demo
         description: Automation Controller Group
@@ -85,7 +86,7 @@
       loop: "{{ web_instance_info['instances'] }}"
       ansible.controller.host:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
         inventory: "{{ inventory_managed_inventory_name }}"
@@ -98,7 +99,7 @@
       loop: "{{ web_instance_info['instances'] }}"
       ansible.controller.group:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: tag_Type_ml_demo
         description: Group of web servers for the F5 daily demo
@@ -114,12 +115,12 @@
           - tag_Type_ml_demo
 
 
-    - name: Remove my daily demo token
-      ansible.controller.token:
-        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
-        existing_token: "{{ controller_token }}"
-        validate_certs: false
+    - name: Remove my token
+      ansible.platform.token:
+        aap_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        existing_token: "{{ ansible_facts['aap_token'] }}"
+        aap_token: "{{ ansible_facts['aap_token']['token'] }}"
+        aap_validate_certs: false
         state: absent
 
 - name: Removing our vm from our inventory
@@ -131,7 +132,7 @@
       loop: "{{ instance_info['instances'] }}"
       ansible.controller.host:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
         inventory: "{{ inventory_managed_inventory_name }}"
@@ -141,7 +142,7 @@
       loop: "{{ web_instance_info['instances'] }}"
       ansible.controller.host:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: "{{ item['public_dns_name'] }}"
         inventory: "{{ inventory_managed_inventory_name }}"
@@ -153,16 +154,16 @@
         - tag_Type_ml_demo
       ansible.controller.group:
         controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
+        controller_oauthtoken: "{{ ansible_facts['aap_token']['token'] }}"
         validate_certs: false
         name: "{{ item }}"
         inventory: "{{ inventory_managed_inventory_name }}"
         state: absent
 
-    - name: Remove my daily demo token
-      ansible.controller.token:
-        controller_host: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ controller_token }}"
-        existing_token: "{{ controller_token }}"
-        validate_certs: false
+    - name: Remove my token
+      ansible.platform.token:
+        aap_hostname: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST') }}"
+        existing_token: "{{ ansible_facts['aap_token'] }}"
+        aap_token: "{{ ansible_facts['aap_token']['token'] }}"
+        aap_validate_certs: false
         state: absent

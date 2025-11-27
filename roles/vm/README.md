@@ -14,7 +14,7 @@ Role Variables
 ```
 vm_name: F5 Daily Demo
 vm_vpc_name: f5-dailydemo
-vm_user_name: eric.ames
+vm_user_name: service.ansible
 vm_subnet_name: "{{ vm_vpc_name }}_Subnet"
 vm_image: ami-0a6612e49a32df1e9
 vm_count: 1

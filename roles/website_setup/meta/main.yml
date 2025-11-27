@@ -4,4 +4,4 @@ galaxy_info:
   author: Eric Ames (ericcames)
   description: Creates the website we need to support Mark Lowcher's f5 demos
   license: MIT License
-  min_ansible_version: "2.12"
+  min_ansible_version: "2.16"

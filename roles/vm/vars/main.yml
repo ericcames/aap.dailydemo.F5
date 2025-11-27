@@ -1,7 +1,7 @@
 ---
 vm_name: F5 Daily Demo
 vm_vpc_name: f5-dailydemo
-vm_user_name: eric.ames
+vm_user_name: service.ansible
 vm_subnet_name: "{{ vm_vpc_name }}_Subnet"
 vm_image: ami-0a6612e49a32df1e9
 vm_image_webserver: ami-054f77471c0e69deb
@@ -14,5 +14,5 @@ vm_webserver_instance_type: t2.micro
 vm_ec2_security_group_name: "{{ vm_vpc_name }}_SECGRP"
 vm_ec2_ansible_group: "{{ vm_user_name }}"
 vm_my_email_address: "{{ vm_user_name }}@redhat.com"
-vm_my_ssh_key: zigfreed-ssh-key
+vm_my_ssh_key: my_public_ssh_key
 ansible_python_interpreter: /usr/bin/python3

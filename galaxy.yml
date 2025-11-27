@@ -3,16 +3,15 @@ authors:
   - Eric Ames (ericcames)
   - Mark Lowcher (mlowcher61)
 dependencies:
-  "amazon.aws": ">=7.2.0"
-  "ansible.posix": ">=1.6.2"
-  "ansible.utils": ">=5.1.2"
-  "ansible.platform": ">=2.5.3"
-  "ansible.hub": ">=1.0.0"
-  "ansible.controller": ">=4.6.2"
-  "ansible.eda": ">=2.2.0"
-  "infra.aap_configuration": ">=3.1.0"
+  "ansible.posix": ">=2.1.0"
+  "ansible.utils": ">=6.0.0"
+  "ansible.platform": ">=2.6.20250924"
+  "ansible.hub": ">=1.0.2"
+  "ansible.controller": ">=4.7.1"
+  "ansible.eda": ">=2.10.0"
+  "infra.aap_configuration": ">=3.8.0"
 license_file: LICENSE
-name: f5dailydemo
+name: f5_daily_demo
 description: An f5 demo that can be run every day to show people how Ansible Automation Platform can be used to manage f5 devices.
 namespace: ericcames
 readme: README.md
@@ -24,4 +23,7 @@ tags:
   - aws
   - f5
   - dailydemo
-version: 0.0.5
+  - automation
+  - ansible
+  - awesome
+version: 1.0.0

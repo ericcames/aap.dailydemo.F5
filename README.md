@@ -2,6 +2,13 @@ Ansible Automation Platform Daily Demo for F5
 =========
 A demo designed to build the F5 Infrastructure needed to showcase many of the use cases related to F5.  This builds a standalone F5 at Amazon and sets the admin password so you will be ready to go when the playbook is done building the infrastructure.
 
+Notes
+=========
+1. This demo is designed to work with the Red Hat Demo Platform. Please see the aap.as.code repo below. [aap.as.code](https://github.com/ericcames/aap.as.code "aap.as.code")
+2. This demo works with Amazon only currently.
+3. Must accept Terms and conditions at this link while logged into the AWS environment before running this. https://aws.amazon.com/marketplace/pp/prodview-mn63yjbq37n4c
+![alt text](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/f5optin.png "Terms")
+
 Day 0 - Configuration as code (CAC)
 =========
 Configuration as code give you an easy way to recover/move your ansible related artifacts to a new platform.  That includes your hardcoded credentials.  The hardcoded credentials can be safely vaulted in an ansible vault file.  Check out the setup_demo.yml for the configurations for setting up this demo using configuration as code.
@@ -10,11 +17,12 @@ Configuration as code give you an easy way to recover/move your ansible related 
 
 Extra Vars
 ```
-my_organization: AmesCO
 my_vault: Eric Ames
-my_rh_aap_credential: aap.kona.services
-my_aws_credential: AWS Blank Open Environment pvwk8
-aap_configuration_async_retries: 60
+timezone_id: America/Phoenix
+my_remote_vault: >-
+  https://raw.githubusercontent.com/ericcames/sourcefiles/refs/heads/main/vault_ames.yml
+my_remote_ssh_pub_key: >-
+  https://raw.githubusercontent.com/ericcames/sourcefiles/refs/heads/main/id_rsa.pub
 ```
 
 Day 1 - Infrastructure as code (IAC)

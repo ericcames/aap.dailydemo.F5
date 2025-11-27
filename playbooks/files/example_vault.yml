@@ -1,8 +1,0 @@
----
-# My Secure Shell Private key
-ssh_priv_key: |
- -----BEGIN RSA PRIVATE KEY-----
- -----END RSA PRIVATE KEY-----
-
-# My admin password
-admin_password: PASSWORDGOESHERE
