@@ -71,6 +71,7 @@ Day 2
 
 [F5 -0- AWS -Gather specific facts](https://gitlab.com/mlowcher/F5_examples/-/blob/master/0_bigip_facts.yml?ref_type=heads "F5 -0- AWS -Gather specific facts")<br>
 [F5 -1- AWS -Import certificate and key](https://gitlab.com/mlowcher/F5_examples/-/blob/master/1_bigip_cert_key_import.yml?ref_type=heads "F5 -1- AWS -Import certificate and key")<br>
+[F5 -2- AWS -Add custom HTTP profile](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_create_http_profile.yml?ref_type=heads "")<br>
 
 
 **Execution Environment**<br>
