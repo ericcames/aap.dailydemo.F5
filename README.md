@@ -73,6 +73,10 @@ Day 2
 [F5 -1- AWS -Import certificate and key](https://gitlab.com/mlowcher/F5_examples/-/blob/master/1_bigip_cert_key_import.yml?ref_type=heads "")<br>
 [F5 -2- AWS -Add custom HTTP profile](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_create_http_profile.yml?ref_type=heads "")<br>
 [F5 -2- AWS -Create custom clientssl](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_client_ssl_profile.yml?ref_type=heads "")<br>
+[F5 -2- AWS -Create custom TCP profile](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_create_tcp_profile.yml?ref_type=heads "")<br>
+[F5 -2- AWS -Disable pool member](https://gitlab.com/mlowcher/F5_examples/-/blob/master/disable_pool_member.yml?ref_type=heads "")<br>
+[F5 -3- AWS -Add pool and members](https://gitlab.com/mlowcher/F5_examples/-/blob/master/3_bigip_pool_and_members.yml?ref_type=heads "")<br>
+[F5 -4- AWS -Create VIP](https://gitlab.com/mlowcher/F5_examples/-/blob/master/4_bigip_virtual_server.yml?ref_type=heads "")<br>
 
 
 **Execution Environment**<br>
