@@ -77,7 +77,13 @@ Day 2
 [F5 -2- AWS -Disable pool member](https://gitlab.com/mlowcher/F5_examples/-/blob/master/disable_pool_member.yml?ref_type=heads "")<br>
 [F5 -3- AWS -Add pool and members](https://gitlab.com/mlowcher/F5_examples/-/blob/master/3_bigip_pool_and_members.yml?ref_type=heads "")<br>
 [F5 -4- AWS -Create VIP](https://gitlab.com/mlowcher/F5_examples/-/blob/master/4_bigip_virtual_server.yml?ref_type=heads "")<br>
-
+[F5 -6- AWS -Delete certificate and key](https://gitlab.com/mlowcher/F5_examples/-/blob/master/6_delete_bigip_cert_key.yml?ref_type=heads "")<br>
+[F5 -6- AWS -Delete custom clientssl](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_client_ssl_profile.yml?ref_type=heads "")<br>
+[F5 -6- AWS -Delete custom HTTP profile](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_create_http_profile.yml?ref_type=heads "")<br>
+[F5 -6- AWS -Delete custom TCP profile](https://gitlab.com/mlowcher/F5_examples/-/blob/master/2_create_tcp_profile.yml?ref_type=heads "")<br>
+[F5 -6- AWS -Delete pool](https://gitlab.com/mlowcher/F5_examples/-/blob/master/6_bigip_delete_pool.yml?ref_type=heads "")<br>
+[F5 -6- AWS -Delete VIP](https://gitlab.com/mlowcher/F5_examples/-/blob/master/4_bigip_virtual_server.yml?ref_type=heads "")<br>
+[F5 -7- AWS -Change admin password](https://gitlab.com/mlowcher/F5_examples/-/blob/master/change_admin_passwd.yml?ref_type=heads "")<br>
 
 **Execution Environment**<br>
 - [F5_ee](https://quay.io/locust61/f5_ee:0.1 "F5 Execution Environment")
