@@ -88,6 +88,9 @@ Day 2
 **The Workflows**
 
 ![](/images/f5wf0.png)<br>
+![](/images/f5wf6.png)<br>
+![](/images/f5wf1.png)<br>
+![](/images/f5wf2.png)<br>
 
 
 **Execution Environment**<br>
