@@ -52,25 +52,6 @@ Example login using your ssh key that was shared with Amazon
 ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 ```
 
-**The playbooks**
-
-[1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
-![Check out the readme in the git repo](/images/F5job.png)<br>
-
-Tags used:
-```
-create
-  or
-remove
-```
-
-**The Credentials Types**
-
-Red Hat Ansible Automation Platform<br>
-Daily Demo F5 Machine Credential<br>
-![](/images/F5machinecred.png)<br>
-Amazon Web Services Credential<br>
-
 **The AAP Managed Inventory**
 
 ![Check out the readme in the git repo](/images/F5inventory.png)<br>
@@ -86,8 +67,8 @@ f5demo
 Day 2
 =========
 
-**Example Playbooks**
-- [F5 example playbooks](https://gitlab.com/mlowcher/F5_examples "F5 example playbooks")
+**The Playbooks**
+- [F5 -0- AWS -Gather specific facts](https://gitlab.com/mlowcher/F5_examples/-/blob/master/0_bigip_facts.yml?ref_type=heads "F5 -0- AWS -Gather specific facts")
 
 
 **Execution Environment**<br>
