@@ -62,7 +62,7 @@ f5demo
 ```
 
 **The Cleanup Schedule**
-![Check out the readme in the git repo](/images/F5cleanup.png)<br>
+![Check out the readme in the git repo](/images/f5cleanup.png)<br>
 
 Day 2
 =========
