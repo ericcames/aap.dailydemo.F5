@@ -19,7 +19,7 @@ controller_templates:
     playbook: 1_bigip_cert_key_import.yml
     credentials:
       - Daily Demo F5 Network
-      - F5 Demo
+      - Daily Demo F5
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-1-AWS-Import_cert_and_key.json') | regex_replace('\\n', '') }}"
 
