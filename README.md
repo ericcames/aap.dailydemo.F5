@@ -131,7 +131,7 @@ options:
 
 **A Network Credential is reguired for Day 2 ops**
 
-![Check out the readme in the git repo](/images/F5networkcred.png)<br>
+![Check out the readme in the git repo](/images/f5cred.png)<br>
 
 
 Looking for other Daily Demos?
