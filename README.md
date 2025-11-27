@@ -27,6 +27,9 @@ my_remote_ssh_pub_key: >-
 
 Day 1 - Infrastructure as code (IAC)
 =========
+# Deploy the infrastruture we need for the demo
+
+[Run workflow for the f5 Daily Demo](https://github.com/ericcames/aap.dailydemo.F5/blob/main/images/f5wf.png "Run workflow for the f5 Daily Demo")<br>
 
 # The F5 User Interface
 
@@ -48,7 +51,7 @@ Example login using your ssh key that was shared with Amazon
 ssh admin@ec2-54-67-87-75.us-west-1.compute.amazonaws.com
 ```
 
-**The playbook**
+**The playbooks**
 
 [1. Create and Delete F5](https://github.com/ericcames/aap.dailydemo.F5/blob/main/playbooks/main.yml "main.yml")<br>
 ![Check out the readme in the git repo](/images/F5job.png)<br>
