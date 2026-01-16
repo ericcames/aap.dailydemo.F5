@@ -20,6 +20,7 @@ controller_templates:
     credentials:
       - Daily Demo F5 Network
       - Daily Demo F5
+      - "{{ my_vault }}"
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-1-AWS-Import_cert_and_key.json') | regex_replace('\\n', '') }}"
 
