@@ -127,6 +127,7 @@
 
     - name: Set the initial admin password
       ansible.builtin.expect:
+        timeout: 60
         command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ public_dns_name }} modify auth user admin prompt-for-password"
         responses:
           "new password:":
@@ -136,6 +137,7 @@
 
     - name: Save the running config
       ansible.builtin.expect:
+        timeout: 60
         command: "ssh -o StrictHostKeyChecking=accept-new admin@{{ public_dns_name }} save sys config"
         responses:
           "saving ...done":
