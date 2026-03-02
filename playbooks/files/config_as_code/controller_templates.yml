@@ -20,7 +20,7 @@ controller_templates:
     credentials:
       - Daily Demo F5 Network
       - Daily Demo F5
-      - "{{ my_vault }}"
+      - F5 Vault
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-1-AWS-Import_cert_and_key.json') | regex_replace('\\n', '') }}"
 
@@ -129,7 +129,7 @@ controller_templates:
     playbook: 6_delete_bigip_cert_key.yml
     credentials:
       - Daily Demo F5 Network
-      - "{{ my_vault }}"
+      - F5 Vault
     survey_enabled: true
     survey: "{{ lookup('template', 'template_surveys/F5-6-AWS-Delete_certificate_and_key.json') | regex_replace('\\n', '') }}"
 
