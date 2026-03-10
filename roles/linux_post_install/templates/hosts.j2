@@ -3,6 +3,6 @@
 
 {% for host in groups['tag_Type_ml_demo'] %}
 {% if 'fqdn' in hostvars[host]['ansible_facts'] or 'hostname' in hostvars[host]['ansible_facts'] %}
-{{ hostvars[host]['ansible_host'] }} {{ inventory_hostname }} {{ hostvars[host]['ansible_facts']['hostname'] | default('') }}
+{{ hostvars[host]['ansible_host'] }} {{ hostvars[host]['ansible_facts']['fqdn'] | default('') }} {{ hostvars[host]['ansible_facts']['hostname'] | default('') }}
 {% endif %}
 {% endfor %}
