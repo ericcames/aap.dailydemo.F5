@@ -3,6 +3,7 @@
   hosts: tag_Type_ml_demo
   gather_facts: false
   become: true
+  serial: 1
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
