@@ -1,11 +1,11 @@
 ---
-- name: Check system status via JSON health endpoint
+- name: Check our webservice
   hosts: localhost
   gather_facts: false
 
   tasks:
 
-    - name: Fetch health check response
+    - name: Fetch health check from our webservers
       register: health_response  # Store response in 'health_response' variable
       loop: "{{ groups['tag_Type_ml_demo'] }}"
       ansible.builtin.uri:
@@ -14,16 +14,18 @@
         return_content: yes  # Capture response body
         status_code: 200  # Expect 200 OK (adjust if your endpoint uses 201, 204, etc.)
 
-    - name: Print raw JSON response
+    - name: Print raw response
       ansible.builtin.debug:
         var: health_response.results  # Access parsed JSON via .json attribute
+        verbosity: 1
 
     - name: Check if system is UP
+      when: health_response[ 'results' ][ 'status'] == "200"  # Conditional check
       ansible.builtin.debug:
         msg: "✅ System is UP (Last checked: {{ health_response.results.date }})"
-      when: health_response.results.status == "200"  # Conditional check
+
 
     - name: Fail if system is DOWN
+      when: health_response.results.status != "200"  # Conditional check
       ansible.builtin.fail:
         msg: "❌ System is DOWN (Last checked: {{ health_response.results.date }})"
-      when: health_response.results.status != "200"  # Conditional check
