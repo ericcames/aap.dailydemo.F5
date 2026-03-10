@@ -39,7 +39,7 @@
       when: reboot_required.stat.exists
       ansible.builtin.reboot:
 
-    - name: Ensure httpd service is stopped and disabled
+    - name: Ensure httpd service is started and enabled
       ansible.builtin.service:
         name: httpd
         state: started
