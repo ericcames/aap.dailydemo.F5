@@ -9,6 +9,12 @@
 
   tasks:
 
+    - name: Ensure httpd service is stopped and disabled
+      ansible.builtin.service:
+        name: httpd
+        state: stopped
+        enabled: false
+
     - name: Upgrade all packages
       ansible.builtin.dnf:
         name: "*"
@@ -32,3 +38,9 @@
     - name: Reboot the machine if it is required
       when: reboot_required.stat.exists
       ansible.builtin.reboot:
+
+    - name: Ensure httpd service is stopped and disabled
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
