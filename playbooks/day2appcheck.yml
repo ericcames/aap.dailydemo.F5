@@ -17,7 +17,6 @@
     - name: Print raw JSON response
       ansible.builtin.debug:
         var: health_response  # Access parsed JSON via .json attribute
-        verbosity: 1  # Show only when running with -v (optional)
 
     - name: Check if system is UP
       ansible.builtin.debug:
