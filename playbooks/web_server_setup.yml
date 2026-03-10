@@ -1,7 +1,6 @@
 ---
 - name: RHEL stem cell becomes a real linux server
   hosts: tag_Type_ml_demo
-  become: true
 
   tasks:
 
