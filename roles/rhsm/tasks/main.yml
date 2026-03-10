@@ -1,0 +1,43 @@
+---
+- name: Manage the Red Hat Registration process
+  tags:
+    - create
+  become: true
+  block:
+
+    - name: Setting the hostname to the public hostname
+      ansible.builtin.hostname:
+        name: "{{ inventory_hostname }}"
+
+    - name: Debug
+      ansible.builtin.debug:
+        msg: "{{ rh_activation_key }} and {{ rh_org_id }}"
+
+    - name: Register and subscribe the system
+      vars:
+        rhc_auth:
+          activation_keys:
+            keys:
+              - "{{ rh_activation_key }}"
+        rhc_organization: '{{ rh_org_id }}'
+        rhc_state: present
+        rhc_insights:
+          autoupdate: true
+          remediation: present
+          state: present
+      ansible.builtin.include_role:
+        name: redhat.rhel_system_roles.rhc
+
+- name: Manage the Red Hat Registration process
+  tags:
+    - remove
+  become: true
+  block:
+
+    - name: Un-Register and Un-subscribe the system
+      vars:
+        rhc_state: absent
+        rhc_insights:
+          state: absent
+      ansible.builtin.include_role:
+        name: redhat.rhel_system_roles.rhc

@@ -1,0 +1,17 @@
+---
+- name: Gather up our remote vaulted variables
+  tags:
+    - create
+  block:
+
+    - name: Grab vault from remote url
+      delegate_to: localhost
+      ansible.builtin.get_url:
+        url: '{{ my_remote_vault }}'
+        dest: "{{ playbook_dir }}/remotevault.yml"
+        mode: '0644'
+
+    - name: Include configurations
+      delegate_to: localhost
+      ansible.builtin.include_vars:
+        file: "{{ playbook_dir }}/remotevault.yml"
