@@ -22,13 +22,16 @@
           - cockpit
         state: absent
 
-    - name: Patching my_packages
-      register: dnf_patch
+    - name: Upgrade all packages except sudo.x86_64
       ansible.builtin.dnf:
-        name: '*'
-        skip_broken: true
-        update_only: true
+        name: "*"
         state: latest
+        security: true
+        bugfix: true
+        update_only: true
+        skip_broken: true
+        exclude:
+          - sudo.x86_64
 
     - name: Run the insights-client to update insights vulnerability data
       register: result
