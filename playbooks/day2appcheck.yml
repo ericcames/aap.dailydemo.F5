@@ -6,7 +6,6 @@
   tasks:
 
     - name: Fetch health check from our webservers
-      register: health_response  # Store response in 'health_response' variable
       loop: "{{ groups['tag_Type_ml_demo'] }}"
       ansible.builtin.uri:
         url: "http://{{ item }}"  # Replace with your endpoint
@@ -14,17 +13,11 @@
         return_content: yes  # Capture response body
         status_code: 200  # Expect 200 OK (adjust if your endpoint uses 201, 204, etc.)
 
-    - name: Print raw response
-      ansible.builtin.debug:
-        var: health_response['results']   # Access parsed JSON via .json attribute
-
-    - name: Check if system is UP
-      when: health_response['content']['status'] == "200"  # Conditional check
-      ansible.builtin.debug:
-        msg: "✅ System is UP (Last checked: {{ health_response['content']['date'] }})"
-
-
-    - name: Fail if system is DOWN
-      when: health_response.status != "200"  # Conditional check
-      ansible.builtin.fail:
-        msg: "❌ System is DOWN (Last checked: {{ health_response.date }})"
+    - name: Fetch health check from our loadbalancer
+      loop: "{{ groups['f5demo'] }}:443"
+      ansible.builtin.uri:
+        url: "https://{{ item }}"  # Replace with your endpoint
+        method: GET
+        return_content: yes  # Capture response body
+        status_code: 200  # Expect 200 OK (adjust if your endpoint uses 201, 204, etc.)
+        validate_certs: false
