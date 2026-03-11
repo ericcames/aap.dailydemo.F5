@@ -1,0 +1,47 @@
+---
+- name: Loadbalancer pool check
+  hosts: f5demo
+  gather_facts: false
+
+  tasks:
+
+  - name: Determine that a network credential exists
+    ansible.builtin.assert:
+      that:
+        - "lookup('ansible.builtin.env', 'Username') !=''"
+        - "lookup('ansible.builtin.env', 'Password') !=''"
+      fail_msg:
+        - "A Network credential is not set"
+        - "Please assign correct credentials to the Job Template"
+
+  - name: Setup provider
+    ansible.builtin.set_fact:
+      provider:
+        server: "{{ F5_mgmt_ip }}"
+        server_port: "8443"
+        validate_certs: "no"
+        user: "{{ lookup('ansible.builtin.env', 'Username') }}"
+        password: "{{ lookup('ansible.builtin.env', 'Password') }}"
+
+  - name: Collect pool facts
+    delegate_to: localhost
+    register: pool_facts
+    f5networks.f5_modules.bigip_device_info:
+      gather_subset:
+        - ltm-pools
+      provider: "{{ provider }}"
+
+  - name: Check if the specified pool exists and set as a fact
+    loop: "{{ pool_facts['ltm_pools'] }}"
+    when: item['name'] == http_pool
+    ansible.builtin.set_fact:
+      target_pool: "{{ item }}"
+
+  - name: Display current status of pool members
+    loop: "{{ target_pool['members'] }}"
+    when: target_pool is defined
+    ansible.builtin.debug:
+      msg:
+        - "Pool '{{ http_pool }}':"
+        - "Pool member status:"
+        - "Member: {{ item['name'] }}, State: {{ item['real_state'] }}"
