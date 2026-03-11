@@ -7,16 +7,13 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
-  collections:
-    - f5networks.f5_modules
-
   tasks:
 
     - name: Get the F5
       loop: "{{ groups['f5demo'] }}"
       ansible.builtin.set_fact:
         f5: "{{ item }}"
-        f5_mgmt_ip: "{{ [ hostvars[item]['F5_mgmt_ip'] ] }}"
+        F5_mgmt_ip: "{{ [ hostvars[item]['F5_mgmt_ip'] ] }}"
         #f5_mgmt_ip: "{{ f5_mgmt_ip|default([]) + [ hostvars[item]['F5_mgmt_ip'] ] }}"
 
     - name: Setup F5 provider
