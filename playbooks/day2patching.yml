@@ -21,7 +21,7 @@
       loop: "{{ groups['f5demo'] }}"
       ansible.builtin.set_fact:
         f5: "{{ item }}"
-        F5_mgmt_ip: "{{ [ hostvars[item]['F5_mgmt_ip'] ] }}"
+        F5_mgmt_ip: "{{ hostvars[item]['F5_mgmt_ip'] }}"
 
     - name: Print out F5_mgmt_ip
       ansible.builtin.debug:
