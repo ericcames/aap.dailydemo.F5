@@ -22,6 +22,8 @@
           server: "{{ F5_mgmt_ip }}"
           server_port: "8443"
           validate_certs: "no"
+          user: "{{ username }}"
+          password: "{{ password }}"
 
     - name: Disable pool member
       f5networks.f5_modules.bigip_pool_member:
