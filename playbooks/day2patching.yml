@@ -44,6 +44,7 @@
         name: "{{ inventory_hostname }}"
         pool: "http_pool"
         port: 80
+        host: "{{ ansible_host }}"
 
     - name: Ensure httpd service is stopped and disabled
       ansible.builtin.service:
@@ -101,3 +102,4 @@
         name: "{{ inventory_hostname }}"
         pool: "http_pool"
         port: 80
+        host: "{{ ansible_host }}"
