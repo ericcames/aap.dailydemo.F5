@@ -32,6 +32,7 @@
       ansible.controller.export:
         workflow_job_templates: 'all'
         validate_certs: False
+        aap_token: "{{ ansible_facts['aap_token']['token'] }}"
 
     - name: Remove my token
       ansible.platform.token:
