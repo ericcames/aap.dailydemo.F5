@@ -51,10 +51,8 @@
         - "Member: {{ item['name'] }}, State: {{ item['real_state'] }}"
 
   - name: Display current status of pool members
-    loop: "{{ target_pool }}"
     when: target_pool is defined
     ansible.builtin.debug:
       msg:
-        - "Pool http_pool:"
-        - "Pool status:"
-        - "Acitve Member Count: {{ item['active_member_count'] }}, Available Member Count: {{ item['available_member_count'] }}"
+        - "Pool http_pool status:"
+        - "Acitve Member Count: {{ target_pool['active_member_count'] }}, Available Member Count: {{ target_pool['available_member_count'] }}"
