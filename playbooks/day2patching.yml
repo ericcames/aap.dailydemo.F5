@@ -7,6 +7,9 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
+  collections:
+    - f5networks.f5_modules
+
   tasks:
 
     - name: Get the F5
@@ -15,6 +18,13 @@
         f5: "{{ item }}"
         f5_mgmt_ip: "{{ [ hostvars[item]['F5_mgmt_ip'] ] }}"
         #f5_mgmt_ip: "{{ f5_mgmt_ip|default([]) + [ hostvars[item]['F5_mgmt_ip'] ] }}"
+
+    - name: Setup F5 provider
+      set_fact:
+        provider:
+          server: "{{ F5_mgmt_ip }}"
+          server_port: "8443"
+          validate_certs: "no"
 
     - name: Ensure httpd service is stopped and disabled
       ansible.builtin.service:
