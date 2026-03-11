@@ -27,6 +27,10 @@
         scope: write
         state: present
 
+    - name: Printout my token
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts['aap_token']['token'] }}"
+
     - name: Export all assets
       register: controller_config
       ansible.controller.export:
