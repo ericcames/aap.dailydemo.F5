@@ -23,6 +23,10 @@
         f5: "{{ item }}"
         F5_mgmt_ip: "{{ [ hostvars[item]['F5_mgmt_ip'] ] }}"
 
+    - name: Print out F5_mgmt_ip
+      ansible.builtin.debug:
+        var: F5_mgmt_ip
+
     - name: Setup provider
       ansible.builtin.set_fact:
         provider:
