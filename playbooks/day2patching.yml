@@ -6,6 +6,9 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
+  collections:
+    - f5networks.f5_modules
+
   tasks:
 
     - name: Get the F5
@@ -24,8 +27,8 @@
           password: "{{ lookup('ansible.builtin.env', 'Password') }}"
 
     - name: Disable pool member
-      delegate_to: localhost
-      become: false
+      # delegate_to: localhost
+      # become: false
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "forced_offline"
@@ -83,8 +86,8 @@
         status_code: 200  # Expect 200 OK (adjust if your endpoint uses 201, 204, etc.)
 
     - name: Enable pool member
-      delegate_to: localhost
-      become: false
+      # delegate_to: localhost
+      # become: false
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "present"
