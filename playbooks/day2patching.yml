@@ -42,6 +42,7 @@
 
     - name: Disable pool member
       delegate_to: localhost
+      become: false
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "forced_offline"
@@ -100,6 +101,7 @@
 
     - name: Enable pool member
       delegate_to: localhost
+      become: false
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "present"
