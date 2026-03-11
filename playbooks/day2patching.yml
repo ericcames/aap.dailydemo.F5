@@ -13,6 +13,7 @@
       loop: "{{ groups['f5demo'] }}"
       ansible.builtin.set_fact:
         f5: "{{ item }}"
+        f5_mgmt_ip: "{{ f5_mgmt_ip|default([]) + [ hostvars[item]['F5_mgmt_ip'] ] }}"
 
     - name: Ensure httpd service is stopped and disabled
       ansible.builtin.service:
