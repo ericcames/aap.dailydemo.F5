@@ -9,7 +9,7 @@
 
   tasks:
 
-    - name: Disable member at the loadbalancer
+    - name: Get the F5
       loop: "{{ groups['f5demo'] }}"
       ansible.builtin.set_fact:
         f5: "{{ item }}"
