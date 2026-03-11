@@ -11,8 +11,8 @@
 
     - name: Disable member at the loadbalancer
       loop: "{{ groups['f5demo'] }}"
-      ansible.builtin.debug:
-        msg: "{{ item }}"
+      ansible.builtin.set_fact:
+        f5: "{{ item }}"
 
     - name: Ensure httpd service is stopped and disabled
       ansible.builtin.service:
