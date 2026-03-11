@@ -27,8 +27,7 @@
           password: "{{ lookup('ansible.builtin.env', 'Password') }}"
 
     - name: Disable pool member
-      # delegate_to: localhost
-      # become: false
+      delegate_to: localhost
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "forced_offline"
@@ -86,8 +85,7 @@
         status_code: 200  # Expect 200 OK (adjust if your endpoint uses 201, 204, etc.)
 
     - name: Enable pool member
-      # delegate_to: localhost
-      # become: false
+      delegate_to: localhost
       f5networks.f5_modules.bigip_pool_member:
         provider: "{{provider}}"
         state: "present"
