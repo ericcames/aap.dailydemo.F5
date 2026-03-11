@@ -10,7 +10,7 @@
   tasks:
 
     - name: Disable member at the loadbalancer
-      loop: groups['f5demo']
+      loop: "{{ groups['f5demo'] }}"
       ansible.builtin.debug:
         msg: "{{ hostvars['item']['F5_mgmt_ip'] }}"
 
