@@ -33,7 +33,7 @@
 
   - name: Check if the specified pool exists and set as a fact
     loop: "{{ pool_facts['ansible_facts']['ansible_net_ltm_pools'] }}"
-    when: item['name'] == http_pool
+    when: item['name'] == "http_pool"
     ansible.builtin.set_fact:
       target_pool: "{{ item }}"
 
