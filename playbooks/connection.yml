@@ -1,6 +1,6 @@
 ---
 - name: Connectivity test
-  hosts: all
+  hosts: tag_Type_ml_demo
   gather_facts: false
 
   tasks:
@@ -19,7 +19,6 @@
       register: traceroute_output
       changed_when: false
       ansible.builtin.command: "traceroute -m 10 {{ inventory_hostname }}"
-
 
     - name: Display traceroute results
       ansible.builtin.debug:
