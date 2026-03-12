@@ -1,0 +1,327 @@
+workflow_job_templates:
+    - name: Run Linux Patching Workflow
+      description: ''
+      extra_vars: ''
+      organization: null
+      survey_enabled: false
+      allow_simultaneous: false
+      ask_variables_on_launch: false
+      inventory: null
+      limit: null
+      scm_branch: null
+      ask_inventory_on_launch: false
+      ask_scm_branch_on_launch: false
+      ask_limit_on_launch: false
+      webhook_service: ''
+      webhook_credential: null
+      ask_labels_on_launch: false
+      ask_skip_tags_on_launch: false
+      ask_tags_on_launch: false
+      skip_tags: null
+      job_tags: null
+      related:
+        schedules: []
+        workflow_nodes:
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: File Checker
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - Linux File Checker
+              type: job_template
+            related:
+              credentials: []
+              success_nodes:
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: 9b228239-823f-4053-8986-0a6e20068aaa
+                  type: workflow_job_template_node
+              failure_nodes: []
+              always_nodes: []
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: File Checker
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: Server Status
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - Webservice check
+              type: job_template
+            related:
+              credentials: []
+              success_nodes:
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: 9b228239-823f-4053-8986-0a6e20068aaa
+                  type: workflow_job_template_node
+              failure_nodes: []
+              always_nodes: []
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: Server Status
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: Loadbalancer Status
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - lb pool check
+              type: job_template
+            related:
+              credentials: []
+              success_nodes:
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: 9b228239-823f-4053-8986-0a6e20068aaa
+                  type: workflow_job_template_node
+              failure_nodes: []
+              always_nodes: []
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: Loadbalancer Status
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: 9b228239-823f-4053-8986-0a6e20068aaa
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            related:
+              credentials: []
+              success_nodes:
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: Patching
+                  type: workflow_job_template_node
+              failure_nodes: []
+              always_nodes: []
+              create_approval_template:
+                timeout: 0
+                name: Continue
+                description: ''
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: 9b228239-823f-4053-8986-0a6e20068aaa
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: Patching
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - Linux Patching
+              type: job_template
+            related:
+              credentials: []
+              success_nodes: []
+              failure_nodes: []
+              always_nodes:
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: Server Status Post
+                  type: workflow_job_template_node
+                - workflow_job_template:
+                    organization: null
+                    name: Run Linux Patching Workflow
+                    type: workflow_job_template
+                  identifier: Loadbalancer Status Post
+                  type: workflow_job_template_node
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: Patching
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: Server Status Post
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - Webservice check
+              type: job_template
+            related:
+              credentials: []
+              success_nodes: []
+              failure_nodes: []
+              always_nodes: []
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: Server Status Post
+              type: workflow_job_template_node
+          - extra_data: {}
+            inventory: null
+            scm_branch: null
+            job_type: null
+            job_tags: null
+            skip_tags: null
+            limit: null
+            diff_mode: null
+            verbosity: null
+            execution_environment: null
+            forks: null
+            job_slice_count: null
+            timeout: null
+            all_parents_must_converge: false
+            identifier: Loadbalancer Status Post
+            workflow_job_template:
+              organization: null
+              name: Run Linux Patching Workflow
+              type: workflow_job_template
+            unified_job_template:
+              organization:
+                name: IT Service Automation
+                type: organization
+              name: Day 2 - lb pool check
+              type: job_template
+            related:
+              credentials: []
+              success_nodes: []
+              failure_nodes: []
+              always_nodes: []
+            natural_key:
+              workflow_job_template:
+                organization: null
+                name: Run Linux Patching Workflow
+                type: workflow_job_template
+              identifier: Loadbalancer Status Post
+              type: workflow_job_template_node
+        labels: []
+        notification_templates_started: []
+        notification_templates_success: []
+        notification_templates_error: []
+        notification_templates_approvals: []
+        survey_spec: {}
+      natural_key:
+        organization: null
+        name: Run Linux Patching Workflow
+        type: workflow_job_template
