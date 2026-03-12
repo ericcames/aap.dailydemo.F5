@@ -39,7 +39,7 @@
     - name: Export all assets
       register: controller_config
       ansible.controller.export:
-        workflow_job_templates: 'all'
+        workflow_job_templates: "Run Linux Patching Workflow"
         validate_certs: False
         aap_token: "{{ ansible_facts['aap_token']['token'] }}"
 
