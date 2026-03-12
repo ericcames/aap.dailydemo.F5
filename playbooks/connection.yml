@@ -1,0 +1,35 @@
+---
+- name: Connectivity test
+  hosts: all
+  gather_facts: false
+
+  tasks:
+
+    - name: Wait 600 seconds for target connection to become reachable/usable
+      ansible.builtin.wait_for_connection:
+        connect_timeout: "{{ wait_for_timeout_sec | default(5) }}"
+        delay: "{{ wait_for_delay_sec | default(0) }}"
+        sleep: "{{ wait_for_sleep_sec | default(1) }}"
+        timeout: "{{ wait_for_timeout_sec | default(30) }}"
+
+    - name: Ping the linux host
+      ansible.builtin.ping:
+
+    - name: Execute traceroute command
+      register: traceroute_output
+      changed_when: false
+      ansible.builtin.command: "traceroute -m 10 {{ inventory_hostname }}"
+
+
+    - name: Display traceroute results
+      ansible.builtin.debug:
+        var: traceroute_output.stdout_lines
+
+    - name: Forward Lookup - Validate example.com
+      register: forward_dns
+      failed_when: "'has address' not in forward_dns.stdout"
+      ansible.builtin.shell: host -t A {{ inventory_hostname }}
+
+    - name: Print Forward DNS Result
+      ansible.builtin.debug:
+        var: forward_dns.stdout
