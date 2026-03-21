@@ -10,7 +10,7 @@ controller_workflows:
         organization: IT Service Automation
         all_parents_must_converge: "False"
         success_nodes:
-          - 42b5b46b-df6a-4dbe-9ad4-e4f3454068ff
+          - Do you approve
       - identifier: LB Pool Check
         workflow_job_template: Run Linux Patching Workflow
         unified_job_template: Day 2 - lb pool check
@@ -18,7 +18,7 @@ controller_workflows:
         organization: IT Service Automation
         all_parents_must_converge: "False"
         success_nodes:
-          - 42b5b46b-df6a-4dbe-9ad4-e4f3454068ff
+          - Do you approve
       - identifier: Webservice Check
         workflow_job_template: Run Linux Patching Workflow
         unified_job_template: Day 2 - Webservice check
@@ -26,8 +26,8 @@ controller_workflows:
         organization: IT Service Automation
         all_parents_must_converge: "False"
         success_nodes:
-          - 42b5b46b-df6a-4dbe-9ad4-e4f3454068ff
-      - identifier: 42b5b46b-df6a-4dbe-9ad4-e4f3454068ff
+          - Do you approve
+      - identifier: Do you approve
         workflow_job_template: Run Linux Patching Workflow
         approval_node:
           description: Are my checks good?
