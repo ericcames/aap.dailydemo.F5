@@ -1,8 +1,23 @@
 ---
-- name: Website setup
+- name: RHEL stem cell becomes a real linux server
   hosts: tag_Type_ml_demo
-  become: true
 
-  roles:
+  tasks:
 
-    - role: website_setup
+    - name: Get our remote vaulted variables
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: remote_vault
+
+    - name: Include the redhat subscription manager role
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: rhsm
+
+    - name: Include the linux post role
+      tags:
+        - create
+      ansible.builtin.include_role:
+        name: linux_post_install
