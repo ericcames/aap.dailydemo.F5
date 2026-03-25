@@ -1,0 +1,37 @@
+---
+controller_workflows:
+  - name: workflow - 6 - Remove web app from F5 on AWS
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -6- AWS -Delete VIP
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: F5 -6- AWS -Delete VIP
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete pool
+      - identifier: F5 -6- AWS -Delete pool
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: F5 -6- AWS -Delete pool
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - workflow - F5-6-AWS delete custom profiles
+      - identifier: workflow - F5-6-AWS delete custom profiles
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: workflow - F5-6-AWS delete custom profiles
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...

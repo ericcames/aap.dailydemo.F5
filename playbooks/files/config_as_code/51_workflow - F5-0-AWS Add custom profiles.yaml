@@ -1,0 +1,45 @@
+---
+controller_workflows:
+  - name: workflow - F5-0-AWS Add custom profiles
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -1- AWS -Import certificate and key
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -1- AWS -Import certificate and key
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Create custom clientssl
+      - identifier: F5 -2- AWS -Create custom clientssl
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Create custom clientssl
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Create custom TCP profile
+      - identifier: F5 -2- AWS -Create custom TCP profile
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Create custom TCP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Add custom HTTP profile
+      - identifier: F5 -2- AWS -Add custom HTTP profile
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Add custom HTTP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...

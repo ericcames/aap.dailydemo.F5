@@ -1,0 +1,29 @@
+---
+controller_workflows:
+  - name: Run workflow for the f5 Daily Demo
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: Daily Demo F5 Create/Remove
+        workflow_job_template: Run workflow for the f5 Daily Demo
+        unified_job_template: Daily Demo F5 Create/Remove
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Daily Demo F5 website
+      - identifier: Daily Demo F5 website
+        workflow_job_template: Run workflow for the f5 Daily Demo
+        unified_job_template: Daily Demo F5 website
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...

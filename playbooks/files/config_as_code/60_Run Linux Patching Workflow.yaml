@@ -1,0 +1,71 @@
+---
+controller_workflows:
+  - name: Run Linux Patching Workflow
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: Do you approve
+        workflow_job_template: Run Linux Patching Workflow
+        approval_node:
+          description: ""
+          name: approval
+          timeout: 0
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Patching
+      - identifier: Pre File Check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Linux File Checker
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Pre Pool check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - lb pool check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Pre Web check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Webservice check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Patching
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Linux Patching
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        always_nodes:
+          - Post web check
+          - Post pool check
+      - identifier: Post web check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Webservice check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+      - identifier: Post pool check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - lb pool check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...

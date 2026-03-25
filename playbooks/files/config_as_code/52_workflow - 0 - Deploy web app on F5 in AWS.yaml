@@ -1,0 +1,37 @@
+---
+controller_workflows:
+  - name: workflow - 0 - Deploy web app on F5 in AWS
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: workflow - F5-0-AWS Add custom profiles
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: workflow - F5-0-AWS Add custom profiles
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -3- AWS -Add pool and members
+      - identifier: F5 -3- AWS -Add pool and members
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: F5 -3- AWS -Add pool and members
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -4- AWS -Create VIP
+      - identifier: F5 -4- AWS -Create VIP
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: F5 -4- AWS -Create VIP
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...

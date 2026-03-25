@@ -1,0 +1,45 @@
+---
+controller_workflows:
+  - name: workflow - F5-6-AWS delete custom profiles
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -6- AWS -Delete custom clientssl
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom clientssl
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete custom HTTP profile
+      - identifier: F5 -6- AWS -Delete custom HTTP profile
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom HTTP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete custom TCP profile
+      - identifier: F5 -6- AWS -Delete custom TCP profile
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom TCP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete certificate and key
+      - identifier: F5 -6- AWS -Delete certificate and key
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete certificate and key
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+...
