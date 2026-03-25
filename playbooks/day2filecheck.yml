@@ -11,6 +11,13 @@
 
   tasks:
 
+    - name: Make sure our directories exist
+      loop: "{{ files }}"
+      ansible.builtin.file:
+        path: "{{ item['directory'] }}"
+        state: directory
+        mode: '0755'
+
     - name: Check or fix files we care about
       loop: "{{ files }}"
       diff: true
