@@ -34,6 +34,12 @@
       ansible.builtin.debug:
         msg: "{{ public_ip_address }}"
 
+    - name: Include the rhsm role
+      tags:
+        - remove
+      ansible.builtin.include_role:
+        name: rhsm
+
     - name: Include the vm role
       tags:
         - remove
