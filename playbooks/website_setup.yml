@@ -24,6 +24,6 @@
 
     - name: Include the website setup role
       tags:
-        - always
+        - create
       ansible.builtin.include_role:
         name: website_setup
