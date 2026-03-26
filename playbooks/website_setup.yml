@@ -1,6 +1,7 @@
 ---
 - name: RHEL stem cell becomes a real linux server
   hosts: tag_Type_ml_demo
+  become: true
 
   tasks:
 
@@ -24,6 +25,6 @@
 
     - name: Include the website setup role
       tags:
-       - always
+        - always
       ansible.builtin.include_role:
         name: website_setup
