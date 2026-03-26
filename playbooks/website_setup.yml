@@ -5,7 +5,6 @@
   tasks:
 
     - name: Get our remote vaulted variables
-      delegate_to: localhost
       tags:
         - create
       ansible.builtin.include_role:
