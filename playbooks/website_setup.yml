@@ -21,3 +21,9 @@
         - create
       ansible.builtin.include_role:
         name: linux_post_install
+
+    - name: Include the website setup role
+      tags:
+       - always
+      ansible.builtin.include_role:
+        name: website_setup
