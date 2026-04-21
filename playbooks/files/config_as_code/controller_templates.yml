@@ -209,6 +209,10 @@ controller_templates:
     playbook: playbooks/website_setup.yml
     credentials:
       - "{{ my_aws_machine_credential }}"
+    extra_vars:
+      my_remote_vault: "{{ my_remote_vault }}"
+      my_remote_ssh_pub_key: "{{ my_remote_ssh_pub_key }}"
+      ansible_python_interpreter: /usr/bin/python3
 
   - name: "Day 2 - connection test"
     job_type: run
