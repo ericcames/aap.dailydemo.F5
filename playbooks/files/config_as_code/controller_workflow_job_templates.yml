@@ -163,6 +163,7 @@ controller_workflows:
         workflow_job_template: Run workflow for the f5 Daily Demo
         unified_job_template: Daily Demo F5 Create/Remove
         limit: ""
+        job_tags: create
         organization: IT Service Automation
         all_parents_must_converge: "False"
         success_nodes:
