@@ -1,0 +1,253 @@
+---
+controller_workflows:
+  - name: workflow - F5-0-AWS Add custom profiles
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -1- AWS -Import certificate and key
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -1- AWS -Import certificate and key
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Create custom clientssl
+      - identifier: F5 -2- AWS -Create custom clientssl
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Create custom clientssl
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Create custom TCP profile
+      - identifier: F5 -2- AWS -Create custom TCP profile
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Create custom TCP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -2- AWS -Add custom HTTP profile
+      - identifier: F5 -2- AWS -Add custom HTTP profile
+        workflow_job_template: workflow - F5-0-AWS Add custom profiles
+        unified_job_template: F5 -2- AWS -Add custom HTTP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+
+  - name: workflow - 0 - Deploy web app on F5 in AWS
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: workflow - F5-0-AWS Add custom profiles
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: workflow - F5-0-AWS Add custom profiles
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -3- AWS -Add pool and members
+      - identifier: F5 -3- AWS -Add pool and members
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: F5 -3- AWS -Add pool and members
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -4- AWS -Create VIP
+      - identifier: F5 -4- AWS -Create VIP
+        workflow_job_template: workflow - 0 - Deploy web app on F5 in AWS
+        unified_job_template: F5 -4- AWS -Create VIP
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+
+  - name: workflow - F5-6-AWS delete custom profiles
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -6- AWS -Delete custom clientssl
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom clientssl
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete custom HTTP profile
+      - identifier: F5 -6- AWS -Delete custom HTTP profile
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom HTTP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete custom TCP profile
+      - identifier: F5 -6- AWS -Delete custom TCP profile
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete custom TCP profile
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete certificate and key
+      - identifier: F5 -6- AWS -Delete certificate and key
+        workflow_job_template: workflow - F5-6-AWS delete custom profiles
+        unified_job_template: F5 -6- AWS -Delete certificate and key
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+
+  - name: workflow - 6 - Remove web app from F5 on AWS
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: F5 -6- AWS -Delete VIP
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: F5 -6- AWS -Delete VIP
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - F5 -6- AWS -Delete pool
+      - identifier: F5 -6- AWS -Delete pool
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: F5 -6- AWS -Delete pool
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - workflow - F5-6-AWS delete custom profiles
+      - identifier: workflow - F5-6-AWS delete custom profiles
+        workflow_job_template: workflow - 6 - Remove web app from F5 on AWS
+        unified_job_template: workflow - F5-6-AWS delete custom profiles
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+
+  - name: Run workflow for the f5 Daily Demo
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: Daily Demo F5 Create/Remove
+        workflow_job_template: Run workflow for the f5 Daily Demo
+        unified_job_template: Daily Demo F5 Create/Remove
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Daily Demo F5 website
+      - identifier: Daily Demo F5 website
+        workflow_job_template: Run workflow for the f5 Daily Demo
+        unified_job_template: Daily Demo F5 website
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
+
+  - name: Run Linux Patching Workflow
+    organization: IT Service Automation
+    simplified_workflow_nodes:
+      - identifier: Do you approve
+        workflow_job_template: Run Linux Patching Workflow
+        approval_node:
+          description: ""
+          name: approval
+          timeout: 0
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Patching
+      - identifier: Pre File Check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Linux File Checker
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Pre Pool check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - lb pool check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Pre Web check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Webservice check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        success_nodes:
+          - Do you approve
+      - identifier: Patching
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Linux Patching
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+        always_nodes:
+          - Post web check
+          - Post pool check
+      - identifier: Post web check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - Webservice check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+      - identifier: Post pool check
+        workflow_job_template: Run Linux Patching Workflow
+        unified_job_template: Day 2 - lb pool check
+        limit: ""
+        organization: IT Service Automation
+        all_parents_must_converge: "False"
+    ask_variables_on_launch: "False"
+    allow_simultaneous: "False"
+    scm_branch: ""
+    limit: ""
+    ask_limit_on_launch: false
+    ask_inventory_on_launch: false
+    webhook_service: ""
+    extra_vars: ""
+    survey_enabled: false
