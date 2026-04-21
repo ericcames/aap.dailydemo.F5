@@ -2,3 +2,4 @@
 env
 *.log
 *.orig
+docs/dev-environment.md
